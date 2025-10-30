@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulasi Sorting - Komputasi Modern</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+
+    <div class="container">
+        <button class="menu-toggle" aria-label="Toggle menu">
+            <i class="fas fa-bars"></i>
+        </button>
+
+        <nav class="sidebar">
+            <h2><i class="fas fa-brain"></i> CompThink</h2>
+            <ul class="sidebar-nav">
+                <li><a href="index.html" class="nav-link"><i class="fas fa-home"></i> Beranda</a></li>
+                <li><a href="sorting.html" class="nav-link" data-target="sorting"><i class="fas fa-sort-amount-down"></i> Sorting</a></li>
+                <li><a href="searching.html" class="nav-link" data-target="searching"><i class="fas fa-search"></i> Searching</a></li>
+                <li><a href="stack.html" class="nav-link" data-target="stack"><i class="fas fa-layer-group"></i> Stack</a></li>
+                <li><a href="queue.html" class="nav-link" data-target="queue"><i class="fas fa-people-arrows"></i> Queue</a></li>
+            </ul>
+            <div class="sidebar-footer">
+                <p>Created By Adeveloper</p>
+            </div>
+        </nav>
+
+        <main class="content">
+
+            <section id="sorting" class="simulation-content active">
+                <h1>Simulasi Sorting</h1>
+                <div class="controls">
+                    <div class="control-group">
+                        <label for="sort-speed">Kecepatan:</label>
+                        <input type="range" id="sort-speed" min="1" max="1000" value="500">
+                    </div>
+                    <div class="control-group">
+                        <label for="sort-size">Banyak Data:</label>
+                        <input type="number" id="sort-size" min="5" max="50" value="15">
+                    </div>
+                    
+                    <div class="control-group">
+                        <label for="sort-algorithm">Pilih Algoritma:</label>
+                        <select id="sort-algorithm" class="control-select">
+                            <option value="bubble">Bubble Sort</option>
+                            <option value="insertion">Insertion Sort</option>
+                            <option value="selection">Selection Sort</option>
+                        </select>
+                    </div>
+
+                    <div class="control-group button-group">
+                        <button id="sort-generate" class="generate"><i class="fas fa-sync-alt"></i> Buat Data</button>
+                        <button id="sort-start" class="start"><i class="fas fa-play"></i> Mulai Sorting</button>
+                    </div>
+                </div>
+                
+                <div id="sorting-viz" class="visualization-area"></div>
+                
+                <div class="description-container">
+                    <div id="desc-bubble" class="description active">
+                        <h3>Deskripsi Algoritma: Bubble Sort</h3>
+                        <p>Bubble Sort adalah algoritma pengurutan sederhana yang berulang kali menelusuri daftar, membandingkan elemen yang berdekatan, dan menukarnya jika urutannya salah. Algoritma ini disebut "gelembung" karena elemen yang lebih besar secara bertahap "mengapung" ke posisi akhirnya di bagian akhir daftar.</p>
+                        <ol>
+                            <li>Mulai dari awal daftar, bandingkan elemen pertama dengan elemen kedua.</li>
+                            <li>Jika elemen pertama lebih besar dari elemen kedua, tukar posisi keduanya.</li>
+                            <li>Geser ke pasangan elemen berikutnya (elemen kedua dan ketiga), bandingkan, dan tukar jika perlu.</li>
+                            <li>Ulangi proses ini sampai akhir daftar.</li>
+                            <li>Ulangi seluruh proses (langkah 1-4) untuk seluruh daftar yang belum terurut.</li>
+                        </ol>
+                    </div>
+                    
+                    <div id="desc-insertion" class="description">
+                        <h3>Deskripsi Algoritma: Insertion Sort</h3>
+                        <p>Insertion Sort adalah algoritma pengurutan yang membangun daftar terurut akhir satu elemen pada satu waktu. Ini seperti cara Anda mengurutkan kartu di tangan Anda; Anda mengambil satu kartu dan memasukkannya ke posisi yang benar di antara kartu-kartu yang sudah diurutkan.</p>
+                        <ol>
+                            <li>Mulai dari elemen kedua (indeks 1), anggap elemen pertama (indeks 0) sudah terurut.</li>
+                            <li>Pilih elemen saat ini (disebut 'key') yang akan disisipkan ke bagian yang sudah terurut.</li>
+                            <li>Bandingkan 'key' dengan elemen-elemen di sebelah kirinya (bagian yang sudah terurut).</li>
+                            <li>Geser semua elemen di bagian terurut yang lebih besar dari 'key' ke kanan satu posisi untuk membuat ruang.</li>
+                            <li>Sisipkan 'key' ke posisi yang benar.</li>
+                            <li>Ulangi proses ini untuk semua elemen yang tersisa.</li>
+                        </ol>
+                    </div>
+
+                    <div id="desc-selection" class="description">
+                        <h3>Deskripsi Algoritma: Selection Sort</h3>
+                        <p>Selection Sort adalah algoritma pengurutan yang bekerja dengan membagi daftar menjadi dua bagian: bagian yang sudah terurut (di sebelah kiri) dan bagian yang belum terurut (di sebelah kanan). Algoritma ini berulang kali "memilih" elemen terkecil dari bagian yang belum terurut dan menukarnya dengan elemen pertama dari bagian yang belum terurut.</p>
+                        <ol>
+                            <li>Mulai dari elemen pertama (indeks 0). Anggap ini sebagai elemen terkecil (minimum).</li>
+                            <li>Telusuri sisa daftar (dari indeks 1 sampai akhir) untuk mencari elemen yang lebih kecil.</li>
+                            <li>Jika ditemukan elemen yang lebih kecil, catat indeksnya sebagai minimum baru.</li>
+                            <li>Setelah selesai menelusuri seluruh daftar, tukar elemen di indeks 0 dengan elemen di indeks minimum yang ditemukan.</li>
+                            <li>Sekarang, elemen pertama (indeks 0) sudah terurut.</li>
+                            <li>Ulangi proses, tetapi mulai dari elemen kedua (indeks 1).</li>
+                        </ol>
+                    </div>
+                </div>
+            </section>
+            
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

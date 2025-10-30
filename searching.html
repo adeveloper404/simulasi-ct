@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulasi Searching - Komputasi Modern</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+
+    <div class="container">
+        <button class="menu-toggle" aria-label="Toggle menu">
+            <i class="fas fa-bars"></i>
+        </button>
+
+        <nav class="sidebar">
+            <h2><i class="fas fa-brain"></i> CompThink</h2>
+            <ul class="sidebar-nav">
+                <li><a href="index.html" class="nav-link"><i class="fas fa-home"></i> Beranda</a></li>
+                <li><a href="sorting.html" class="nav-link"><i class="fas fa-sort-amount-down"></i> Sorting</a></li>
+                <li><a href="searching.html" class="nav-link"><i class="fas fa-search"></i> Searching</a></li>
+                <li><a href="stack.html" class="nav-link"><i class="fas fa-layer-group"></i> Stack</a></li>
+                <li><a href="queue.html" class="nav-link"><i class="fas fa-people-arrows"></i> Queue</a></li>
+            </ul>
+            <div class="sidebar-footer">
+                <p>Created By Adeveloper</p>
+            </div>
+        </nav>
+
+        <main class="content">
+            <section id="searching" class="simulation-content active">
+                <h1>Simulasi Searching</h1>
+                <div class="controls">
+                    <div class="control-group">
+                        <label for="search-speed">Kecepatan:</label>
+                        <input type="range" id="search-speed" min="1" max="1000" value="500">
+                    </div>
+                    <div class="control-group">
+                        <label for="search-size">Banyak Data:</label>
+                        <input type="number" id="search-size" min="10" max="30" value="15">
+                    </div>
+                    
+                    <div class="control-group">
+                        <label for="search-algorithm">Pilih Algoritma:</label>
+                        <select id="search-algorithm" class="control-select">
+                            <option value="sequential">Sequential Search</option>
+                            <option value="binary">Binary Search</option>
+                        </select>
+                    </div>
+
+                    <div class="control-group">
+                        <label for="search-target">Data Dicari:</label>
+                        <input type="number" id="search-target" value="7">
+                    </div>
+                    <div class="control-group button-group">
+                        <button id="search-generate" class="generate"><i class="fas fa-sort-numeric-up"></i> Buat Data</button>
+                        <button id="search-start" class="start"><i class="fas fa-play"></i> Mulai Searching</button>
+                    </div>
+                </div>
+
+                <div id="searching-viz" class="visualization-area"></div>
+                
+                <div class="description-container">
+                    <div id="desc-sequential" class="description active">
+                        <h3>Deskripsi Algoritma: Sequential Search</h3>
+                        <p>Sequential Search (Pencarian Berurutan) adalah algoritma pencarian paling dasar. Algoritma ini bekerja dengan memeriksa setiap elemen dalam daftar, satu per satu, dari awal sampai akhir, hingga elemen yang dicari ditemukan atau seluruh daftar telah diperiksa.</p>
+                        <ol>
+                            <li>Mulai dari elemen pertama (indeks 0).</li>
+                            <li>Bandingkan elemen saat ini dengan nilai yang dicari (<code>target</code>).</li>
+                            <li>Jika sama, data ditemukan. Selesai.</li>
+                            <li>Jika tidak sama, pindah ke elemen berikutnya.</li>
+                            <li>Ulangi langkah 2-4 sampai akhir daftar.</li>
+                            <li>Jika sampai akhir daftar dan data tidak ditemukan, berarti data tidak ada.</li>
+                        </ol>
+                        <p><strong>Catatan:</strong> Algoritma ini bisa digunakan pada data yang terurut maupun tidak terurut.</p>
+                    </div>
+
+                    <div id="desc-binary" class="description">
+                        <h3>Deskripsi Algoritma: Binary Search</h3>
+                        <p>Binary Search adalah algoritma pencarian yang sangat efisien, namun hanya dapat digunakan pada <strong>data yang sudah terurut</strong>. Algoritma ini bekerja dengan berulang kali membagi dua bagian daftar yang mungkin berisi item yang dicari.</p>
+                        <ol>
+                            <li>Tentukan batas Bawah (<code>low</code>) di awal daftar (indeks 0) dan batas Atas (<code>high</code>) di akhir daftar.</li>
+                            <li>Selama <code>low <= high</code>, hitung indeks Tengah (<code>mid</code>).</li>
+                            <li>Bandingkan elemen pada <code>mid</code> dengan nilai yang dicari (<code>target</code>).</li>
+                            <li>Jika <code>mid == target</code>, data ditemukan. Selesai.</li>
+                            <li>Jika <code>target < mid</code> (target di sebelah kiri), atur <code>high = mid - 1</code>.</li>
+                            <li>Jika <code>target > mid</code> (target di sebelah kanan), atur <code>low = mid + 1</code>.</li>
+                            <li>Jika <code>low > high</code>, data tidak ditemukan.</li>
+                        </ol>
+                    </div>
+                </div>
+            </section>
+        </main>
+        
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

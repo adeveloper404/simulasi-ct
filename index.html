@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selamat Datang - Simulasi Berpikir Komputasi</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        .welcome-container {
+            text-align: center;
+            padding: 40px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 70vh;
+        }
+        .welcome-container h1 {
+            /* Menghapus garis bawah khusus di halaman ini */
+            border-bottom: none; 
+            font-size: 2.8em;
+            color: var(--dark-bg);
+            margin-bottom: 15px;
+        }
+        .welcome-container .subtitle {
+            font-size: 1.3em;
+            color: #555;
+            max-width: 600px;
+            margin: 0 auto 30px;
+            font-weight: 300;
+        }
+        .welcome-container .instruction {
+            font-size: 1.1em;
+            color: var(--primary-color);
+            font-weight: 600;
+            margin-bottom: 30px;
+        }
+        .welcome-nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 25px;
+            justify-content: center;
+            width: 100%;
+            max-width: 800px;
+        }
+        .welcome-nav a {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            flex-basis: 200px; /* Basis ukuran tombol */
+            flex-grow: 1; /* Biarkan tombol tumbuh */
+            min-height: 130px;
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+            color: white;
+            text-decoration: none;
+            border-radius: 12px;
+            font-size: 1.3em;
+            font-weight: 600;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 5px 20px var(--shadow-light);
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .welcome-nav a i {
+            font-size: 2.2em;
+            margin-bottom: 15px;
+        }
+        .welcome-nav a:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 30px var(--shadow-medium);
+        }
+
+        @media (max-width: 768px) {
+            .welcome-nav a {
+                flex-basis: 150px;
+                min-height: 110px;
+                font-size: 1.1em;
+            }
+            .welcome-nav a i {
+                font-size: 2em;
+            }
+            .welcome-container h1 {
+                font-size: 2.2em;
+            }
+            .welcome-container .subtitle {
+                font-size: 1.1em;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <button class="menu-toggle" aria-label="Toggle menu">
+            <i class="fas fa-bars"></i>
+        </button>
+
+        <nav class="sidebar">
+            <h2><i class="fas fa-brain"></i> CompThink</h2>
+            <ul class="sidebar-nav">
+                <li><a href="index.html" class="nav-link"><i class="fas fa-home"></i> Beranda</a></li>
+                
+                <li><a href="sorting.html" class="nav-link"><i class="fas fa-sort-amount-down"></i> Sorting</a></li>
+                <li><a href="searching.html" class="nav-link"><i class="fas fa-search"></i> Searching</a></li>
+                <li><a href="stack.html" class="nav-link"><i class="fas fa-layer-group"></i> Stack</a></li>
+                <li><a href="queue.html" class="nav-link"><i class="fas fa-people-arrows"></i> Queue</a></li>
+            </ul>
+            <div class="sidebar-footer">
+                <p>Created By Adeveloper</p>
+            </div>
+        </nav>
+
+        <main class="content">
+
+            <section id="welcome" class="simulation-content active">
+                <div class="welcome-container">
+                    <h1>Selamat Datang!</h1>
+                    <p class="subtitle">
+                        Website simulasi interaktif untuk mempelajari konsep dasar 
+                        Berpikir Komputasi (Computational Thinking).
+                    </p>
+                    <p class="instruction">
+                        <i class="fas fa-mouse-pointer"></i>
+                        Silakan pilih salah satu simulasi untuk memulai!
+                    </p>
+                    
+                    <div class="welcome-nav">
+                        <a href="sorting.html">
+                            <i class="fas fa-sort-amount-down"></i>
+                            Sorting
+                        </a>
+                        <a href="searching.html">
+                            <i class="fas fa-search"></i>
+                            Searching
+                        </a>
+                        <a href="stack.html">
+                            <i class="fas fa-layer-group"></i>
+                            Stack
+                        </a>
+                        <a href="queue.html">
+                            <i class="fas fa-people-arrows"></i>
+                            Queue
+                        </a>
+                    </div>
+                </div>
+            </section>
+            
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
